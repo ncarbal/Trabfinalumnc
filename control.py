@@ -3,7 +3,7 @@ from constant import *
 from characters import *
 
 def next_level(player_team):
-    print(levelclear)
+    print(LEVELCLEAR)
     level_up = min(hero.level for hero in player_team) + 1
 
     if level_up == 2:
@@ -18,25 +18,21 @@ def next_level(player_team):
         enemy_team = [raditz_lvl3, cell_lvl3, freezer_lvl3]
         return
     elif level_up == 4:
-        print("¡Felicidades, has completado el juego!")
+        print(FINISHGAME)
         return
     
 def loot(player1):
-    print("Has obtenido Ptos de Experiencia y Oro!")
+    print(EXPPOINT)
     player1.experience += 100
-    player1.gold += 100
 
     # HAGO EL SISTEMA DE LOOT RECOMPENSAS
-    prob = randint(1, 4)
+    prob = randint(1, 3)
     if prob == 1:
-        print("Has conseguido Semilla del Ermitaño +100hp!")
+        print(LOOTERMIT)
         player1.health += 100
     elif prob == 2:
-        print("Recuperas 100 de energía!")
+        print(HEALTHLOOT)
         player1.energy += 100
     elif prob == 3:
-        print("¡Has desbloqueado Super Saiyajin SSJ1!")
+        print(SSJ1LOOT)
         player1.attack += 100
-    elif prob == 4:
-        print("El enemigo ha soltado un botín, ¡Oro adicional!")
-        player1.gold += 150
